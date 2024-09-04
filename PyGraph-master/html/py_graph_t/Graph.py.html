@@ -1,0 +1,153 @@
+<html><body><h1>py_graph_t/Graph.py</h1>Killed 100 out of 116 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 9</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -47,7 +47,7 @@
+         """
+         if self.vertex_exists(value):
+             vertex_removed = self.vertices[value]
+-            for i in range(len(self.edges)-1, -1, -1):
++            for i in range(len(self.edges)-1, -2, -1):
+                 edge = self.edges[i]
+                 if self.is_terminal(edge, value):
+                     self.edges.pop(i)
+</pre><h3>Mutant 11</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -47,7 +47,7 @@
+         """
+         if self.vertex_exists(value):
+             vertex_removed = self.vertices[value]
+-            for i in range(len(self.edges)-1, -1, -1):
++            for i in range(len(self.edges)-1, -1, -2):
+                 edge = self.edges[i]
+                 if self.is_terminal(edge, value):
+                     self.edges.pop(i)
+</pre><h3>Mutant 26</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -103,7 +103,7 @@
+         vertex_a = self.vertices.get(value_a)
+         vertex_b = self.vertices.get(value_b)
+ 
+-        if vertex_a is None or vertex_b is None:
++        if vertex_a is None and vertex_b is None:
+             raise VertexNotExistsException()
+ 
+         if self.edge_name_exists(name):
+</pre><h3>Mutant 34</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -135,7 +135,7 @@
+         vertex_b = self.vertices.get(value_b)
+         edge_aux = SimpleEdge(vertex_a=vertex_a, vertex_b=vertex_b)
+ 
+-        edge_out = None
++        edge_out = ""
+         if self.edges.__contains__(edge_aux):
+             index = self.edges.index(edge_aux)
+             edge_out = self.edges[index]
+</pre><h3>Mutant 56</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -360,7 +360,7 @@
+ 
+         False: caso não possua.
+         """
+-        visited[v] = True
++        visited[v] = None
+ 
+         for i in self.vertices:
+             if (self.is_vertices_adjacents(v, i)):
+</pre><h3>Mutant 59</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -366,7 +366,7 @@
+             if (self.is_vertices_adjacents(v, i)):
+                 if visited[i] is False:
+                     if (self.cycle(i, visited, v)):
+-                        return True
++                        return False
+                 elif parent != i:
+                     return True
+         return False
+</pre><h3>Mutant 68</h3><pre></pre><h3>Mutant 69</h3><pre></pre><h3>Mutant 77</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -421,7 +421,7 @@
+         valency = []
+ 
+         for i in self.vertices:
+-            v = 0
++            v = 1
+             aux = SimpleVertex(i)
+             for j in self.edges:
+                 if aux == j.vertex_a or aux == j.vertex_b:
+</pre><h3>Mutant 84</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -425,7 +425,7 @@
+             aux = SimpleVertex(i)
+             for j in self.edges:
+                 if aux == j.vertex_a or aux == j.vertex_b:
+-                    v += 1
++                    v -= 1
+             valency.append(v)
+         return len(set(valency)) <= 1
+ 
+</pre><h3>Mutant 85</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -425,7 +425,7 @@
+             aux = SimpleVertex(i)
+             for j in self.edges:
+                 if aux == j.vertex_a or aux == j.vertex_b:
+-                    v += 1
++                    v += 2
+             valency.append(v)
+         return len(set(valency)) <= 1
+ 
+</pre><h3>Mutant 104</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -477,7 +477,7 @@
+         for edge in self.edges:
+             value_a = edge.vertex_a.get_value()
+             value_b = edge.vertex_b.get_value()
+-            adjacency_matrix[value_a][value_b] += 1
++            adjacency_matrix[value_a][value_b] = 1
+             adjacency_matrix[value_b][value_a] += 1
+ 
+         return adjacency_matrix
+</pre><h3>Mutant 110</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -491,7 +491,7 @@
+         graph_string: String
+             - Representação textual do grafo.
+         """
+-        graph_string = ""
++        graph_string = "XXXX"
+         for edge in self.edges:
+             graph_string += edge.__str__()
+             graph_string += "\n"
+</pre><h3>Mutant 112</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -493,7 +493,7 @@
+         """
+         graph_string = ""
+         for edge in self.edges:
+-            graph_string += edge.__str__()
++            graph_string = edge.__str__()
+             graph_string += "\n"
+         return graph_string
+ 
+</pre><h3>Mutant 114</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -494,6 +494,6 @@
+         graph_string = ""
+         for edge in self.edges:
+             graph_string += edge.__str__()
+-            graph_string += "\n"
++            graph_string = "\n"
+         return graph_string
+ 
+</pre><h3>Mutant 116</h3><pre>--- py_graph_t/Graph.py
++++ py_graph_t/Graph.py
+@@ -494,6 +494,6 @@
+         graph_string = ""
+         for edge in self.edges:
+             graph_string += edge.__str__()
+-            graph_string += "\n"
++            graph_string += "XX\nXX"
+         return graph_string
+ 
+</pre></body></html>

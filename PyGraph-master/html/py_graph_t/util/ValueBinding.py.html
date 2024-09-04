@@ -1,0 +1,142 @@
+<html><body><h1>py_graph_t/util\ValueBinding.py</h1>Killed 1 out of 14 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 158</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -8,7 +8,7 @@
+         """
+         Inicialização dos atributos da classe ValueBinding.
+         """
+-        self.vertex_name = vertex_name
++        self.vertex_name = None
+         self.edge_name = edge_name
+         self.value = value
+ 
+</pre><h3>Mutant 159</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -9,7 +9,7 @@
+         Inicialização dos atributos da classe ValueBinding.
+         """
+         self.vertex_name = vertex_name
+-        self.edge_name = edge_name
++        self.edge_name = None
+         self.value = value
+ 
+     def get_vertex_name(self):
+</pre><h3>Mutant 160</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -10,7 +10,7 @@
+         """
+         self.vertex_name = vertex_name
+         self.edge_name = edge_name
+-        self.value = value
++        self.value = None
+ 
+     def get_vertex_name(self):
+         return self.vertex_name
+</pre><h3>Mutant 162</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -33,7 +33,7 @@
+         if isinstance(other, self.__class__):
+             return self.__dict__ == other.__dict__
+         else:
+-            return False
++            return True
+ 
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+</pre><h3>Mutant 163</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -36,7 +36,7 @@
+             return False
+ 
+     def __repr__(self):
+-        result = str(self.vertex_name) + " - "
++        result = str(self.vertex_name) - " - "
+         result += str(self.edge_name) + " => "
+         result += str(self.value)
+         return result
+</pre><h3>Mutant 164</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -36,7 +36,7 @@
+             return False
+ 
+     def __repr__(self):
+-        result = str(self.vertex_name) + " - "
++        result = str(self.vertex_name) + "XX - XX"
+         result += str(self.edge_name) + " => "
+         result += str(self.value)
+         return result
+</pre><h3>Mutant 165</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -36,7 +36,7 @@
+             return False
+ 
+     def __repr__(self):
+-        result = str(self.vertex_name) + " - "
++        result = None
+         result += str(self.edge_name) + " => "
+         result += str(self.value)
+         return result
+</pre><h3>Mutant 166</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -37,7 +37,7 @@
+ 
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+-        result += str(self.edge_name) + " => "
++        result = str(self.edge_name) + " => "
+         result += str(self.value)
+         return result
+ 
+</pre><h3>Mutant 167</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -37,7 +37,7 @@
+ 
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+-        result += str(self.edge_name) + " => "
++        result -= str(self.edge_name) + " => "
+         result += str(self.value)
+         return result
+ 
+</pre><h3>Mutant 168</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -37,7 +37,7 @@
+ 
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+-        result += str(self.edge_name) + " => "
++        result += str(self.edge_name) - " => "
+         result += str(self.value)
+         return result
+ 
+</pre><h3>Mutant 169</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -37,7 +37,7 @@
+ 
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+-        result += str(self.edge_name) + " => "
++        result += str(self.edge_name) + "XX => XX"
+         result += str(self.value)
+         return result
+ 
+</pre><h3>Mutant 170</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -38,6 +38,6 @@
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+         result += str(self.edge_name) + " => "
+-        result += str(self.value)
++        result = str(self.value)
+         return result
+ 
+</pre><h3>Mutant 171</h3><pre>--- py_graph_t/util\ValueBinding.py
++++ py_graph_t/util\ValueBinding.py
+@@ -38,6 +38,6 @@
+     def __repr__(self):
+         result = str(self.vertex_name) + " - "
+         result += str(self.edge_name) + " => "
+-        result += str(self.value)
++        result -= str(self.value)
+         return result
+ 
+</pre></body></html>

@@ -1,0 +1,12 @@
+<html><body><h1>py_graph_t/SimpleGraph.py</h1>Killed 7 out of 8 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 123</h3><pre>--- py_graph_t/SimpleGraph.py
++++ py_graph_t/SimpleGraph.py
+@@ -44,7 +44,7 @@
+         vertex_b = self.vertices.get(value_b)
+         new_edge = SimpleEdge(name=name, vertex_a=vertex_a, vertex_b=vertex_b)
+ 
+-        if vertex_a is None or vertex_b is None:
++        if vertex_a is None and vertex_b is None:
+             raise VertexNotExistsException()
+ 
+         if new_edge in self.edges:
+</pre></body></html>
